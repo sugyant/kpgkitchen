@@ -11,6 +11,8 @@ app.use(cors({
   }));
 
 const productRouter = require('./routes/products');
+const paymentRouter = require('./routes/paymentRoute');
+
 const port = 3000;
 
 dotenv.config()
@@ -20,4 +22,6 @@ app.use(express.json({limit: '10mb'} ));
 app.use(express.urlencoded({limit: '10mb', extended: true} ));
 
 app.use('/api/products', productRouter)
+app.use('/api/payments', paymentRouter);
+
 app.listen(process.env.PORT || port, () => console.log(`KPG Kitchen listening on port ${process.env.PORT}!`))
